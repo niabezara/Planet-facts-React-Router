@@ -5,6 +5,7 @@ import GlobalStyle from "./GlobalStyle";
 import Planets from "./Routes/Planets";
 import NavBar from "./Components/NavBar";
 import { useState } from "react";
+import styled from "styled-components";
 
 function App() {
   const [open, setOpen] = useState<boolean>(false);
@@ -20,6 +21,7 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <NavBar setOpen={setOpen} open={open} />
+      <HeaderLine />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />
@@ -29,3 +31,11 @@ function App() {
 }
 
 export default App;
+
+const HeaderLine = styled.hr`
+  width: 100%;
+  height: 2px;
+  border: none;
+  opacity: 0.20000000298023224;
+  background: #fff;
+`;

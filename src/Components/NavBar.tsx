@@ -13,12 +13,15 @@ export default function NavBar({
   return (
     <header>
       <StyledMenu>
-        <h1>THE PLANETS</h1>
-        <StyledBurger open={open} onClick={() => setOpen(!open)}>
-          <div />
-          <div />
-          <div />
-        </StyledBurger>
+        <Subnav>
+          <Logo>THE PLANETS</Logo>
+          <StyledBurger open={open} onClick={() => setOpen(!open)}>
+            <div />
+            <div />
+            <div />
+          </StyledBurger>
+        </Subnav>
+
         <NavList open={open}>
           {Data.map((item) => {
             return (
@@ -52,7 +55,7 @@ export const StyledBurger = styled.button<StyledBurgerProps>`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -72,16 +75,20 @@ export const StyledBurger = styled.button<StyledBurgerProps>`
   }
 `;
 export const StyledMenu = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
   text-align: left;
-  padding: 2rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 1.6rem 2.4rem;
   transition: transform 0.3s ease-in-out;
+`;
+
+const Logo = styled.h1`
+  color: #fff;
+  font-family: Antonio;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.05px;
+  text-transform: uppercase;
 `;
 
 const NavList = styled.ul<{ open: boolean }>`
@@ -90,15 +97,23 @@ const NavList = styled.ul<{ open: boolean }>`
   list-style: none;
   height: 100%;
   flex-flow: column nowrap;
-  background-color: #11112b;
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-  top: 64.5px;
-
   right: 0;
   height: 100vh;
   width: 100%;
   padding: 3.5rem;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+`;
+
+const Subnav = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const HeaderLine = styled.hr`
+  width: 100%;
+  height: 2px;
+  background-color: rgba(7, 7, 36, 1);
 `;
