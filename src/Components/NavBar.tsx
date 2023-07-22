@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Data from "../Data/Data.json";
 import { Link } from "react-router-dom";
-import { StyledBurgerProps } from "../styles";
+import { StyledBurgerProps, NavListProps } from "../styles";
 
 export default function NavBar({
   setOpen,
@@ -19,7 +19,7 @@ export default function NavBar({
           <div />
           <div />
         </StyledBurger>
-        <ul>
+        <NavList open={open}>
           {Data.map((item) => {
             return (
               <li key={item.name}>
@@ -27,7 +27,7 @@ export default function NavBar({
               </li>
             );
           })}
-        </ul>
+        </NavList>
       </StyledMenu>
     </header>
   );
@@ -82,14 +82,23 @@ export const StyledMenu = styled.nav`
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+`;
 
-  ul {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    text-decoration: none;
-    transition: color 0.3s linear;
-  }
+const NavList = styled.ul<{ open: boolean }>`
+  display: flex;
+  gap: 3.3rem;
+  list-style: none;
+  height: 100%;
+  flex-flow: column nowrap;
+  background-color: #11112b;
+  position: fixed;
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+  top: 64.5px;
+
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  padding: 3.5rem;
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
 `;

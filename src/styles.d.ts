@@ -8,3 +8,7 @@ export interface StyledBurgerProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   open: boolean;
 }
+
+export interface NavListProps {
+  open: boolean;
+}
