@@ -93,27 +93,55 @@ const Logo = styled.h1`
 
 const NavList = styled.ul<{ open: boolean }>`
   display: flex;
-  gap: 3.3rem;
   list-style: none;
   height: 100%;
   flex-flow: column nowrap;
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   right: 0;
-  height: 100vh;
   width: 100%;
-  padding: 3.5rem;
+  padding: 2rem 2.4rem;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+  li {
+    position: relative;
+    padding-left: 2.5rem;
+    border-bottom: 1px solid hsl(240, 17%, 26%);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: ${(props) => props.color};
+      border-radius: 50%;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+    }
+    a {
+      color: #fff;
+      text-align: center;
+      font-family: Spartan;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 25px; /* 166.667% */
+      letter-spacing: 1.364px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 20px 0 20px 44px;
+      display: flex;
+      justify-content: space-between;
+      &::after {
+        content: url("/icon-chevron.svg");
+      }
+    }
+  }
 `;
 
 const Subnav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-const HeaderLine = styled.hr`
-  width: 100%;
-  height: 2px;
-  background-color: rgba(7, 7, 36, 1);
 `;
