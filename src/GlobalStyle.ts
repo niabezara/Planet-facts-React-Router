@@ -24,11 +24,11 @@ export default createGlobalStyle`
   }
 }
   body {
-    background: url('/background-stars.svg');
+    /* background: url('/background-stars.svg');
     animation: moveStars 20s linear infinite;
     background-size: cover;
     background-color: #11112B;
-    color: #fff;
+    color: #fff; */
     min-height: 100vh;
     font-family: 'Antonio', sans-serif;
   }

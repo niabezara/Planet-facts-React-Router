@@ -1,10 +1,13 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./Routes/HomePage";
 import { Helmet } from "react-helmet";
 import GlobalStyle from "./GlobalStyle";
 import Planets from "./Routes/Planets";
+import NavBar from "./Components/NavBar";
+import { useState } from "react";
 
 function App() {
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <>
       <Helmet>
@@ -16,15 +19,7 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">HomePage</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <NavBar setOpen={setOpen} open={open} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />
