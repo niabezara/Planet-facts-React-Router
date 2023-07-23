@@ -57,9 +57,7 @@ const AnimationDiv = styled.div`
   padding: 0;
   overflow: hidden;
   z-index: -1;
-  -webkit-transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%))
-    rotate(120deg);
-  transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%))
+  transform: translatex(calc(100vw - 100%)) translatey(calc(100vh - 100%))
     rotate(360deg);
 `;
 
