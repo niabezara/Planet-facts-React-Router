@@ -103,28 +103,28 @@ const Stars = styled.span`
     top: 0;
     right: 0;
     left: inherit;
-    animation-delay: 0;
-    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-duration: 2s;
   }
   &:nth-child(2) {
     top: 0;
     right: 70px;
     left: inherit;
-    animation-delay: 0.3s;
-    animation-duration: 4s;
+    animation-delay: 3.3s;
+    animation-duration: 5s;
   }
   &:nth-child(3) {
     top: 70px;
     right: 0px;
     left: inherit;
-    animation-delay: 0.3s;
-    animation-duration: 3s;
+    animation-delay: 5.3s;
+    animation-duration: 6s;
   }
   &:nth-child(4) {
     top: 0;
     right: 170px;
     left: initial;
-    animation-delay: 0.7s;
-    animation-duration: 3s;
+    animation-delay: 8.7s;
+    animation-duration: 5s;
   }
 `;
