@@ -22,6 +22,14 @@ function App() {
       <GlobalStyle />
       <NavBar setOpen={setOpen} open={open} />
       <HeaderLine />
+      <AnimationDiv>
+        <Stars> </Stars>
+        <Stars> </Stars>
+        <Stars> </Stars>
+        <Stars> </Stars>
+        <Stars> </Stars>
+        <Stars> </Stars>
+      </AnimationDiv>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />
@@ -38,4 +46,85 @@ const HeaderLine = styled.hr`
   border: none;
   opacity: 0.20000000298023224;
   background: #fff;
+`;
+
+const AnimationDiv = styled.div`
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: -1;
+  -webkit-transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%))
+    rotate(120deg);
+  transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%))
+    rotate(360deg);
+`;
+
+const Stars = styled.span`
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 5px;
+  height: 2px;
+  background: #e2e2e2;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 5px rgba(254, 254, 255, 0.2),
+    0 1px 0 7px rgba(245, 254, 255, 0.1), 0 1px 21px #cccccb;
+  animation: anim 3s ease-in-out infinite;
+  &:before {
+    content: "";
+    width: 220px;
+    height: 1px;
+    position: absolute;
+    top: 53%;
+    transform: translateY(-45%);
+    background: linear-gradient(90deg, rgb(132 130 130), transparent);
+  }
+  @keyframes anim {
+    0% {
+      transform: rotate(325deg) translateX(0);
+      opacity: 1;
+    }
+    40% {
+      opacity: 0.8;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(325deg) translateX(-1400px);
+      opacity: 0;
+    }
+  }
+  &:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: inherit;
+    animation-delay: 0;
+    animation-duration: 1s;
+  }
+  &:nth-child(2) {
+    top: 0;
+    right: 70px;
+    left: inherit;
+    animation-delay: 0.3s;
+    animation-duration: 4s;
+  }
+  &:nth-child(3) {
+    top: 70px;
+    right: 0px;
+    left: inherit;
+    animation-delay: 0.3s;
+    animation-duration: 3s;
+  }
+  &:nth-child(4) {
+    top: 0;
+    right: 170px;
+    left: initial;
+    animation-delay: 0.7s;
+    animation-duration: 3s;
+  }
 `;
