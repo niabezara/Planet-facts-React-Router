@@ -87,7 +87,6 @@ export default function Planets() {
 const Container = styled.div`
   @media (min-width: 768px) {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr 1fr;
     padding: 3.9rem;
   }
@@ -132,6 +131,20 @@ const HeadLine = styled.div`
     grid-area: 2/-2;
     display: flex;
     flex-direction: column;
+    padding: 2.4rem 0 2.4rem 0;
+    border: none;
+    button {
+      border: 1px solid hsl(240, 17%, 26%);
+      padding: 1.8rem 0.7rem;
+      text-align: left;
+      &::before {
+        background-color: ${(props) => props.color};
+        height: 100%;
+        bottom: 0;
+        opacity: 1;
+        color: hsl(0, 0%, 100%);
+      }
+    }
   }
 `;
 
@@ -151,6 +164,9 @@ const Overview = styled.p`
   font-weight: 400;
   line-height: 22px;
   margin-bottom: 3.2rem;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `;
 const Source = styled.p`
   color: #838391;
@@ -209,6 +225,10 @@ const BrifInfo = styled.section`
   text-align: center;
   align-items: center;
   padding: 0.9rem 2.4rem 1.3rem;
+  @media (min-width: 768px) {
+    flex-direction: column;
+    justify-content: unset;
+  }
 `;
 const Title = styled.p`
   color: #838391;
@@ -225,8 +245,9 @@ const InformationDiv = styled.div`
   width: 100%;
   @media (min-width: 768px) {
     grid-area: 3 / 1 / span 1 / 3;
-
     display: flex;
+    justify-content: space-between;
+    padding: 2.4rem 0 2.4rem 0;
   }
 `;
 
@@ -261,5 +282,6 @@ const OverviewDiv = styled.div`
   }
   @media (min-width: 768px) {
     grid-area: 2;
+    align-items: flex-start;
   }
 `;
