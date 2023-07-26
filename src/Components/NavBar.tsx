@@ -5,9 +5,11 @@ import DesktopVersionNavBar from "./DesktopVersionNavBar";
 export default function NavBar({
   setOpen,
   open,
+  handleLinkClick,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleLinkClick: () => void;
 }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -28,7 +30,11 @@ export default function NavBar({
   return (
     <>
       {isMobile ? (
-        <MobileVersionNavBar setOpen={setOpen} open={open} />
+        <MobileVersionNavBar
+          setOpen={setOpen}
+          open={open}
+          handleLinkClick={handleLinkClick}
+        />
       ) : (
         <DesktopVersionNavBar />
       )}

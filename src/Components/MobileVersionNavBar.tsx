@@ -6,9 +6,11 @@ import { StyledBurgerProps } from "../styles";
 export default function MobileVersionNavBar({
   setOpen,
   open,
+  handleLinkClick,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleLinkClick: () => void;
 }) {
   return (
     <HeaderStyled>
@@ -23,7 +25,11 @@ export default function MobileVersionNavBar({
           <NavList open={open}>
             {Data.map((item) => {
               return (
-                <List key={item.name} color={item.color}>
+                <List
+                  key={item.name}
+                  color={item.color}
+                  onClick={handleLinkClick}
+                >
                   <Link to={`/${item.name}`}>{item.name}</Link>
                 </List>
               );
@@ -87,6 +93,10 @@ const Logo = styled.h1`
 const HeaderStyled = styled.header`
   border-bottom: 1px solid hsl(240, 17%, 26%);
   padding: 1.6rem 2.4rem;
+
+  /* @media (min-width: 768px) {
+    display: none;
+  } */
 `;
 const NavList = styled.ul<{ open: boolean }>`
   display: flex;
@@ -96,10 +106,12 @@ const NavList = styled.ul<{ open: boolean }>`
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   right: 0;
+  top: 69px;
   width: 100%;
   padding: 2rem 2.4rem 2rem 2.4rem;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+  background: #11112b;
 
   a {
     color: #fff;

@@ -9,6 +9,10 @@ import NavBar from "./Components/NavBar";
 
 function App() {
   const [open, setOpen] = useState<boolean>(false);
+  const handleLinkClick = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Helmet>
@@ -20,7 +24,7 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
-      <NavBar setOpen={setOpen} open={open} />
+      <NavBar setOpen={setOpen} open={open} handleLinkClick={handleLinkClick} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />

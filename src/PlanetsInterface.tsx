@@ -17,7 +17,7 @@ export interface PlanetsInterface {
   radius: string;
   temperature: string;
   images: {
-    planet: string;
+    [key: string]: any;
     internal: string;
     geology: string;
   };

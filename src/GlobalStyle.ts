@@ -11,10 +11,7 @@ export default createGlobalStyle`
   html{
     font-size: 62.5%;
   }
-  #root{
-    height: 100vh;
-  
-  }
+ 
   @keyframes moveStars {
   from {
     background-position: 0 0;
@@ -31,7 +28,7 @@ export default createGlobalStyle`
     color: #fff;
     min-height: 100vh;
     font-family: 'Antonio', sans-serif;
-    overflow: hidden;
+    
   }
   
 
