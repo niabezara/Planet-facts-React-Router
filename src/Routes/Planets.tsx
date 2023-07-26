@@ -31,7 +31,7 @@ export default function Planets() {
   console.log(planetInfo);
 
   return (
-    <>
+    <Container>
       <HeadLine color={planetInfo?.color}>
         <button onClick={() => handlePlanetClick("Overwiew")}>OVERVIEW</button>
         <button onClick={() => handlePlanetClick("structure")}>
@@ -39,19 +39,16 @@ export default function Planets() {
         </button>
         <button onClick={() => handlePlanetClick("surface")}>Surface </button>
       </HeadLine>
-      <MainPage>
-        <PlanetImageDiv
-          backgroundimg={surface ? planetInfo?.images.geology : ""}
-        >
-          <Image
-            src={planetInfo?.images[current as ImageKeys]}
-            desktopImgWidth={planetInfo?.desktopImgWidth}
-            tabletImgWidth={planetInfo?.tabletImgWidth}
-            mobileImgWidth={planetInfo?.mobileImgWidth}
-            alt=""
-          />
-        </PlanetImageDiv>
-
+      <PlanetImageDiv backgroundimg={surface ? planetInfo?.images.geology : ""}>
+        <Image
+          src={planetInfo?.images[current as ImageKeys]}
+          desktopImgWidth={planetInfo?.desktopImgWidth}
+          tabletImgWidth={planetInfo?.tabletImgWidth}
+          mobileImgWidth={planetInfo?.mobileImgWidth}
+          alt=""
+        />
+      </PlanetImageDiv>
+      <OverviewDiv>
         <h1>{planetInfo?.name}</h1>
         <Overview>{planetInfo?.overview.content}</Overview>
         <Source>
@@ -64,28 +61,37 @@ export default function Planets() {
             Wikipedia
           </a>
         </Source>
-        <InformationDiv>
-          <BrifInfo>
-            <Title>ROTATION TIME</Title>
-            <Answer>{planetInfo?.rotation}</Answer>
-          </BrifInfo>
-          <BrifInfo>
-            <Title>REVOLUTION TIME</Title>
-            <Answer>{planetInfo?.revolution}</Answer>
-          </BrifInfo>
-          <BrifInfo>
-            <Title>radius</Title>
-            <Answer>{planetInfo?.radius}</Answer>
-          </BrifInfo>
-          <BrifInfo>
-            <Title>AVERAGE TEMP.</Title>
-            <Answer>{planetInfo?.temperature}</Answer>
-          </BrifInfo>
-        </InformationDiv>
-      </MainPage>
-    </>
+      </OverviewDiv>
+      <InformationDiv>
+        <BrifInfo>
+          <Title>ROTATION TIME</Title>
+          <Answer>{planetInfo?.rotation}</Answer>
+        </BrifInfo>
+        <BrifInfo>
+          <Title>REVOLUTION TIME</Title>
+          <Answer>{planetInfo?.revolution}</Answer>
+        </BrifInfo>
+        <BrifInfo>
+          <Title>radius</Title>
+          <Answer>{planetInfo?.radius}</Answer>
+        </BrifInfo>
+        <BrifInfo>
+          <Title>AVERAGE TEMP.</Title>
+          <Answer>{planetInfo?.temperature}</Answer>
+        </BrifInfo>
+      </InformationDiv>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
+    padding: 3.9rem;
+  }
+`;
 
 const HeadLine = styled.div`
   display: flex;
@@ -122,26 +128,17 @@ const HeadLine = styled.div`
       transform: scaleX(1);
     }
   }
-`;
-const MainPage = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 2.4rem;
-  h1 {
-    color: #fff;
-    text-align: center;
-    font-family: Antonio;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    margin-bottom: 1.6rem;
+  @media (min-width: 768px) {
+    grid-area: 2/-2;
+    display: flex;
+    flex-direction: column;
   }
 `;
-const Image = styled.img<{ mobileImgWidth: string | undefined }>`
+
+const Image = styled.img<{
+  mobileImgWidth: string | undefined;
+  tabletImgWidth: string | undefined;
+}>`
   max-width: ${(props) => props.mobileImgWidth};
   background-size: 100%;
 `;
@@ -177,6 +174,9 @@ const Source = styled.p`
     line-height: 25px;
     text-decoration-line: underline;
   }
+  @media (min-width: 768px) {
+    max-width: ${(props) => props.tabletImgWidth};
+  }
 `;
 const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
   position: relative;
@@ -197,6 +197,9 @@ const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
+  }
+  @media (min-width: 768px) {
+    grid-area: 1 / 1 / span 1 / 3;
   }
 `;
 const BrifInfo = styled.section`
@@ -220,6 +223,11 @@ const Title = styled.p`
 
 const InformationDiv = styled.div`
   width: 100%;
+  @media (min-width: 768px) {
+    grid-area: 3 / 1 / span 1 / 3;
+
+    display: flex;
+  }
 `;
 
 const Answer = styled.p`
@@ -232,4 +240,26 @@ const Answer = styled.p`
   line-height: normal;
   letter-spacing: -0.75px;
   text-transform: uppercase;
+`;
+
+const OverviewDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2.4rem;
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-family: Antonio;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+  }
+  @media (min-width: 768px) {
+    grid-area: 2;
+  }
 `;
