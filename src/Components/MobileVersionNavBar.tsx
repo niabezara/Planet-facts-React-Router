@@ -14,7 +14,6 @@ export default function MobileVersionNavBar({
     <HeaderStyled>
       <Subnav>
         <Logo>THE PLANETS</Logo>
-
         <nav>
           <StyledBurger open={open} onClick={() => setOpen(!open)}>
             <div />
