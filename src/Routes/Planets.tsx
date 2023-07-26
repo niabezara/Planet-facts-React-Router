@@ -247,7 +247,6 @@ const InformationDiv = styled.div`
     grid-area: 3 / 1 / span 1 / 3;
     display: flex;
     justify-content: space-between;
-    padding: 2.4rem 0 2.4rem 0;
   }
 `;
 
@@ -283,5 +282,6 @@ const OverviewDiv = styled.div`
   @media (min-width: 768px) {
     grid-area: 2;
     align-items: flex-start;
+    padding: 2.4rem 2.4rem 2.4rem 0;
   }
 `;
