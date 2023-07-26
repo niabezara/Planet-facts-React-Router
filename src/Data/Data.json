@@ -22,7 +22,10 @@
       "internal": "./assets/planet-mercury-internal.svg",
       "geology": "./assets/geology-mercury.png"
     },
-    "color": "#419EBB"
+    "color": "#419EBB",
+    "desktopImgWidth": "290px",
+    "tabletImgWidth": "184px",
+    "mobileImgWidth": "111px"
   },
   {
     "name": "Venus",
@@ -47,7 +50,10 @@
       "internal": "./assets/planet-venus-internal.svg",
       "geology": "./assets/geology-venus.png"
     },
-    "color": "#EDA249"
+    "color": "#EDA249",
+    "desktopImgWidth": "400px",
+    "tabletImgWidth": "253px",
+    "mobileImgWidth": "154px"
   },
   {
     "name": "Earth",
@@ -72,7 +78,10 @@
       "internal": "./assets/planet-earth-internal.svg",
       "geology": "./assets/geology-earth.png"
     },
-    "color": "#6D2ED5"
+    "color": "#6D2ED5",
+    "desktopImgWidth": "450px",
+    "tabletImgWidth": "285px",
+    "mobileImgWidth": "173px"
   },
   {
     "name": "Mars",
@@ -97,7 +106,10 @@
       "internal": "./assets/planet-mars-internal.svg",
       "geology": "./assets/geology-mars.png"
     },
-    "color": "#D14C32"
+    "color": "#D14C32",
+    "desktopImgWidth": "336px",
+    "tabletImgWidth": "213px",
+    "mobileImgWidth": "129px"
   },
   {
     "name": "Jupiter",
@@ -122,7 +134,10 @@
       "internal": "./assets/planet-jupiter-internal.svg",
       "geology": "./assets/geology-jupiter.png"
     },
-    "color": "#D83A34"
+    "color": "#D83A34",
+    "desktopImgWidth": "582px",
+    "tabletImgWidth": "369px",
+    "mobileImgWidth": "224px"
   },
   {
     "name": "Saturn",
@@ -147,7 +162,10 @@
       "internal": "./assets/planet-saturn-internal.svg",
       "geology": "./assets/geology-saturn.png"
     },
-    "color": "#CD5120"
+    "color": "#CD5120",
+    "desktopImgWidth": "666px",
+    "tabletImgWidth": "422px",
+    "mobileImgWidth": "256px"
   },
   {
     "name": "Uranus",
@@ -172,7 +190,10 @@
       "internal": "./assets/planet-uranus-internal.svg",
       "geology": "./assets/geology-uranus.png"
     },
-    "color": "#1EC1A2"
+    "color": "#1EC1A2",
+    "desktopImgWidth": "458px",
+    "tabletImgWidth": "290px",
+    "mobileImgWidth": "176px"
   },
   {
     "name": "Neptune",
@@ -197,6 +218,9 @@
       "internal": "./assets/planet-neptune-internal.svg",
       "geology": "./assets/geology-neptune.png"
     },
-    "color": "#2D68F0"
+    "color": "#2D68F0",
+    "desktopImgWidth": "450px",
+    "tabletImgWidth": "285px",
+    "mobileImgWidth": "173px"
   }
 ]

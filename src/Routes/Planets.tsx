@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Data from "../Data/Data.json";
 import styled from "styled-components";
@@ -8,6 +8,7 @@ export type ImageKeys = "internal" | "geology";
 export default function Planets() {
   const params = useParams();
   const [current, setCurrent] = useState("planet");
+  const [surface, setSurface] = useState(false);
 
   console.log(params.planet);
   const planetInfo = Data.find(
@@ -17,29 +18,38 @@ export default function Planets() {
   const handlePlanetClick = (type: string) => {
     if (type == "Overwiew") {
       setCurrent("planet");
+      setSurface(false);
     }
     if (type == "structure") {
       setCurrent("internal");
+      setSurface(false);
     } else if (type == "surface") {
       setCurrent("planet");
+      setSurface(true);
     }
   };
   console.log(planetInfo);
 
   return (
     <>
-      <HeadLine>
-        <p onClick={() => handlePlanetClick("Overwiew")}>OVERVIEW</p>
-        <p onClick={() => handlePlanetClick("structure")}>Structure</p>
-        <p onClick={() => handlePlanetClick("surface")}>Surface </p>
+      <HeadLine color={planetInfo?.color}>
+        <button onClick={() => handlePlanetClick("Overwiew")}>OVERVIEW</button>
+        <button onClick={() => handlePlanetClick("structure")}>
+          Structure
+        </button>
+        <button onClick={() => handlePlanetClick("surface")}>Surface </button>
       </HeadLine>
       <MainPage>
         <PlanetImageDiv
-          backgroundimg={
-            current === "surface" ? planetInfo?.images["geology"] || "" : ""
-          }
+          backgroundimg={surface ? planetInfo?.images.geology : ""}
         >
-          <img src={planetInfo?.images[current as ImageKeys]} alt="" />
+          <Image
+            src={planetInfo?.images[current as ImageKeys]}
+            desktopImgWidth={planetInfo?.desktopImgWidth}
+            tabletImgWidth={planetInfo?.tabletImgWidth}
+            mobileImgWidth={planetInfo?.mobileImgWidth}
+            alt=""
+          />
         </PlanetImageDiv>
 
         <h1>{planetInfo?.name}</h1>
@@ -82,7 +92,8 @@ const HeadLine = styled.div`
   justify-content: space-around;
   border-bottom: 1px solid hsl(240, 17%, 26%);
   padding: 2rem;
-  p {
+
+  button {
     color: #fff;
     text-align: center;
     font-family: Spartan;
@@ -92,6 +103,24 @@ const HeadLine = styled.div`
     line-height: normal;
     letter-spacing: 1.929px;
     text-transform: uppercase;
+    border: none;
+    background: transparent;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: ${(props) => props.color};
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 350ms ease;
+    }
+    &:hover::before {
+      transform: scaleX(1);
+    }
   }
 `;
 const MainPage = styled.main`
@@ -111,6 +140,10 @@ const MainPage = styled.main`
     text-transform: uppercase;
     margin-bottom: 1.6rem;
   }
+`;
+const Image = styled.img<{ mobileImgWidth: string | undefined }>`
+  max-width: ${(props) => props.mobileImgWidth};
+  background-size: 100%;
 `;
 const Overview = styled.p`
   color: #fff;
@@ -145,9 +178,9 @@ const Source = styled.p`
     text-decoration-line: underline;
   }
 `;
-const PlanetImageDiv = styled.div<{ backgroundimg: string }>`
+const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
   position: relative;
-  height: 40rem;
+  height: 30rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,12 +191,12 @@ const PlanetImageDiv = styled.div<{ backgroundimg: string }>`
     background-repeat: no-repeat;
     z-index: 100;
     background-size: 90%;
-    width: 158px;
-    height: 165px;
+    width: 110px;
+    height: 150px;
     content: "";
-    top: 66%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-44%);
+    transform: translateX(-50%);
   }
 `;
 const BrifInfo = styled.section`

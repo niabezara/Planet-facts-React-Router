@@ -22,4 +22,7 @@ export interface PlanetsInterface {
     geology: string;
   };
   color: string;
+  desktopImgWidth: string;
+  tabletImgWidth: string;
+  mobileImgWidth: string;
 }
