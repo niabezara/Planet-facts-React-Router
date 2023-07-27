@@ -10,7 +10,6 @@ export default function Planets() {
   const [current, setCurrent] = useState("planet");
   const [surface, setSurface] = useState(false);
 
-  console.log(params.planet);
   const planetInfo = Data.find(
     (item) => item.name.toLowerCase() == params.planet?.toLowerCase()
   );
@@ -94,6 +93,11 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     padding: 3.9rem;
   }
+  @media (min-width: 1140px) {
+    max-width: 1110px;
+    margin: 0 auto;
+    grid-column-gap: 6rem;
+  }
 `;
 
 const HeadLine = styled.div`
@@ -103,6 +107,7 @@ const HeadLine = styled.div`
   padding: 2rem;
 
   button {
+    cursor: pointer;
     color: #fff;
     text-align: center;
     font-family: "League Spartan";
@@ -159,6 +164,13 @@ const HeadLine = styled.div`
       }
     }
   }
+  @media (min-width: 1140px) {
+    font-size: 12px;
+    letter-spacing: 2.571px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 25px;
+  }
 `;
 
 const NumList = styled.span`
@@ -181,11 +193,15 @@ const NumList = styled.span`
 const Image = styled.img<{
   mobileImgWidth: string | undefined;
   tabletImgWidth: string | undefined;
+  desktopImgWidth: string | undefined;
 }>`
   max-width: ${(props) => props.mobileImgWidth};
   background-size: 100%;
   @media (min-width: 768px) {
     max-width: ${(props) => props.tabletImgWidth};
+  }
+  @media (min-width: 1140px) {
+    max-width: ${(props) => props.desktopImgWidth};
   }
 `;
 const Overview = styled.p`
@@ -199,6 +215,10 @@ const Overview = styled.p`
   margin-bottom: 3.2rem;
   @media (min-width: 768px) {
     text-align: left;
+  }
+  @media (min-width: 1140px) {
+    font-size: 14px;
+    line-height: 25px;
   }
 `;
 const Source = styled.p`
@@ -226,7 +246,7 @@ const Source = styled.p`
 `;
 const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
   position: relative;
-  height: 30rem;
+  height: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,6 +267,14 @@ const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
   @media (min-width: 768px) {
     grid-area: 1 / 1 / span 1 / 3;
   }
+  @media (min-width: 1140px) {
+    grid-area: 1 / 1 / span 2 / 2;
+    height: 58rem;
+    &::before {
+      width: 210.667px;
+      height: 233px;
+    }
+  }
 `;
 const BrifInfo = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -260,6 +288,10 @@ const BrifInfo = styled.div`
     justify-content: unset;
     align-items: flex-start;
   }
+  @media (min-width: 1140px) {
+    width: 25.5rem;
+    align-items: flex-start;
+  }
 `;
 const Title = styled.p`
   color: #838391;
@@ -270,6 +302,11 @@ const Title = styled.p`
   line-height: 16px;
   letter-spacing: 0.727px;
   text-transform: uppercase;
+  @media (min-width: 1140px) {
+    font-size: 11px;
+    line-height: 25px;
+    letter-spacing: 1px;
+  }
 `;
 
 const InformationDiv = styled.div`
@@ -280,6 +317,7 @@ const InformationDiv = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2.4rem 0 2.4rem 0;
+    gap: 30px;
   }
 `;
 
@@ -293,6 +331,11 @@ const Answer = styled.p`
   line-height: normal;
   letter-spacing: -0.75px;
   text-transform: uppercase;
+  @media (min-width: 1140px) {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+  }
 `;
 
 const OverviewDiv = styled.div`
@@ -316,5 +359,11 @@ const OverviewDiv = styled.div`
     grid-area: 2;
     align-items: flex-start;
     padding: 2.4rem 2.4rem 2.4rem 0;
+  }
+  @media (min-width: 1140px) {
+    grid-area: 1/2;
+    h1 {
+      font-size: 80px;
+    }
   }
 `;

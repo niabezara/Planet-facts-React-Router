@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Data from "../Data/Data.json";
 import styled from "styled-components";
 
@@ -42,17 +42,22 @@ const NavWrapper = styled.nav`
   justify-content: center;
   align-items: center;
   row-gap: 3.9rem;
+  @media (min-width: 1140px) {
+    flex-direction: unset;
+    justify-content: space-between;
+  }
 `;
 
-const NavList = styled.ul`
+const NavList = styled.ul<{ color: any }>`
   display: flex;
   flex-direction: row;
   list-style: none;
   gap: 3.3rem;
+  position: relative;
   li {
     a {
       color: #fff;
-      font-family: Spartan;
+      font-family: "League Spartan";
       font-size: 11px;
       font-style: normal;
       font-weight: 700;
@@ -62,5 +67,17 @@ const NavList = styled.ul`
       text-transform: uppercase;
       cursor: pointer;
     }
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: ${(props) => props.color};
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 350ms ease;
   }
 `;
