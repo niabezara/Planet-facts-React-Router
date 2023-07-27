@@ -33,11 +33,15 @@ export default function Planets() {
   return (
     <Container>
       <HeadLine color={planetInfo?.color}>
-        <button onClick={() => handlePlanetClick("Overwiew")}>OVERVIEW</button>
-        <button onClick={() => handlePlanetClick("structure")}>
-          Structure
+        <button onClick={() => handlePlanetClick("Overwiew")}>
+          <NumList>01</NumList> OVERVIEW
         </button>
-        <button onClick={() => handlePlanetClick("surface")}>Surface </button>
+        <button onClick={() => handlePlanetClick("structure")}>
+          <NumList>02</NumList> Structure
+        </button>
+        <button onClick={() => handlePlanetClick("surface")}>
+          <NumList>03</NumList> Surface
+        </button>
       </HeadLine>
       <PlanetImageDiv backgroundimg={surface ? planetInfo?.images.geology : ""}>
         <Image
@@ -101,7 +105,7 @@ const HeadLine = styled.div`
   button {
     color: #fff;
     text-align: center;
-    font-family: Spartan;
+    font-family: "League Spartan";
     font-size: 9px;
     font-style: normal;
     font-weight: 700;
@@ -135,16 +139,37 @@ const HeadLine = styled.div`
     border: none;
     button {
       border: 1px solid hsl(240, 17%, 26%);
-      padding: 1.8rem 0.7rem;
+      padding: 1.8rem 2.7rem;
       text-align: left;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       &::before {
         background-color: ${(props) => props.color};
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
         height: 100%;
-        bottom: 0;
-        opacity: 1;
-        color: hsl(0, 0%, 100%);
       }
     }
+  }
+`;
+
+const NumList = styled.span`
+  display: none;
+  visibility: hidden;
+  @media (min-width: 768px) {
+    display: inline-block;
+    visibility: initial;
+    color: #838391;
+    margin-right: 1.5rem;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 1.929px;
+    text-transform: uppercase;
   }
 `;
 
@@ -154,11 +179,14 @@ const Image = styled.img<{
 }>`
   max-width: ${(props) => props.mobileImgWidth};
   background-size: 100%;
+  @media (min-width: 768px) {
+    max-width: ${(props) => props.tabletImgWidth};
+  }
 `;
 const Overview = styled.p`
   color: #fff;
   text-align: center;
-  font-family: Spartan;
+  font-family: "League Spartan";
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -170,7 +198,7 @@ const Overview = styled.p`
 `;
 const Source = styled.p`
   color: #838391;
-  font-family: Spartan;
+  font-family: "League Spartan";
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -183,15 +211,12 @@ const Source = styled.p`
   a {
     opacity: 0.5;
     color: #838391;
-    font-family: Spartan;
+    font-family: "League Spartan";
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: 25px;
     text-decoration-line: underline;
-  }
-  @media (min-width: 768px) {
-    max-width: ${(props) => props.tabletImgWidth};
   }
 `;
 const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
@@ -218,7 +243,7 @@ const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
     grid-area: 1 / 1 / span 1 / 3;
   }
 `;
-const BrifInfo = styled.section`
+const BrifInfo = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: space-between;
@@ -228,11 +253,12 @@ const BrifInfo = styled.section`
   @media (min-width: 768px) {
     flex-direction: column;
     justify-content: unset;
+    align-items: flex-start;
   }
 `;
 const Title = styled.p`
   color: #838391;
-  font-family: Spartan;
+  font-family: "League Spartan";
   font-size: 8px;
   font-style: normal;
   font-weight: 700;
@@ -243,10 +269,12 @@ const Title = styled.p`
 
 const InformationDiv = styled.div`
   width: 100%;
+  padding: 1rem 2.4rem;
   @media (min-width: 768px) {
     grid-area: 3 / 1 / span 1 / 3;
     display: flex;
     justify-content: space-between;
+    padding: 2.4rem 0 2.4rem 0;
   }
 `;
 
