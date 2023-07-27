@@ -137,6 +137,7 @@ const List = styled.li`
   position: relative;
   padding-left: 2.5rem;
   border-bottom: 1px solid hsl(240, 17%, 26%);
+  cursor: pointer;
 
   &::before {
     content: "";

@@ -60,6 +60,7 @@ const NavList = styled.ul`
       text-decoration: none;
       letter-spacing: 1px;
       text-transform: uppercase;
+      cursor: pointer;
     }
   }
 `;

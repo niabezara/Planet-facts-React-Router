@@ -132,6 +132,7 @@ const HeadLine = styled.div`
     }
   }
   @media (min-width: 768px) {
+    cursor: pointer;
     grid-area: 2/-2;
     display: flex;
     flex-direction: column;
@@ -144,6 +145,10 @@ const HeadLine = styled.div`
       position: relative;
       isolation: isolate;
       overflow: hidden;
+      &:hover {
+        /* opacity: 0.20000000298023224;
+        background-color: #d8d8d8; */
+      }
       &::before {
         background-color: ${(props) => props.color};
         content: "";
