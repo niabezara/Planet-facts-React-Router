@@ -1,6 +1,3 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Data from "../Data/Data.json";
 import { styled, keyframes } from "styled-components";
 
 const planetOrbitAnimation = keyframes`
