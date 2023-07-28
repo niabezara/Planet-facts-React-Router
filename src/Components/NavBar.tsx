@@ -6,12 +6,10 @@ export default function NavBar({
   setOpen,
   open,
   handleLinkClick,
-  navigate,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleLinkClick: () => void;
-  navigate: any;
 }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
