@@ -10,9 +10,9 @@ export default function DesktopVersionNavBar() {
         <NavList>
           {Data.map((item) => {
             return (
-              <li key={item.name} color={item.color}>
+              <List key={item.name} color={item.color}>
                 <Link to={`/${item.name}`}>{item.name}</Link>
-              </li>
+              </List>
             );
           })}
         </NavList>
@@ -48,26 +48,28 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const NavList = styled.ul<{ color: any }>`
+const NavList = styled.ul`
   display: flex;
   flex-direction: row;
   list-style: none;
   gap: 3.3rem;
+`;
+
+const List = styled.li<{ color: string }>`
   position: relative;
-  li {
-    a {
-      color: #fff;
-      font-family: "League Spartan";
-      font-size: 11px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 25px;
-      text-decoration: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+  a {
+    color: #fff;
+    font-family: "League Spartan";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
   }
+
   &::before {
     position: absolute;
     content: "";

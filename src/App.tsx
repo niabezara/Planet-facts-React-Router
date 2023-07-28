@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import GlobalStyle from "./GlobalStyle";
 import Planets from "./Routes/Planets";
 import { useState } from "react";
-import styled from "styled-components";
 import NavBar from "./Components/NavBar";
 
 function App() {
