@@ -7,15 +7,19 @@ export default function MobileVersionNavBar({
   setOpen,
   open,
   handleLinkClick,
+  navigate,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleLinkClick: () => void;
+  navigate: () => void;
 }) {
   return (
     <HeaderStyled>
       <Subnav>
-        <Logo>THE PLANETS</Logo>
+        <Link to="/" onClick={() => navigate()}>
+          <Logo>THE PLANETS</Logo>
+        </Link>
         <nav>
           <StyledBurger open={open} onClick={() => setOpen(!open)}>
             <div />
@@ -155,4 +159,7 @@ const Subnav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a {
+    text-decoration: none;
+  }
 `;

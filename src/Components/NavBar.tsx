@@ -6,10 +6,12 @@ export default function NavBar({
   setOpen,
   open,
   handleLinkClick,
+  navigate,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleLinkClick: () => void;
+  navigate: () => void;
 }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -34,9 +36,10 @@ export default function NavBar({
           setOpen={setOpen}
           open={open}
           handleLinkClick={handleLinkClick}
+          navigate={navigate}
         />
       ) : (
-        <DesktopVersionNavBar />
+        <DesktopVersionNavBar navigate={navigate} />
       )}
     </>
   );

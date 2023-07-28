@@ -1,12 +1,19 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Data from "../Data/Data.json";
 import styled from "styled-components";
 
-export default function DesktopVersionNavBar() {
+export default function DesktopVersionNavBar({
+  navigate,
+}: {
+  navigate: () => void;
+}) {
   return (
     <HeaderStyled>
       <NavWrapper>
-        <Logo>THE PLANETS</Logo>
+        <Link to="/" onClick={() => navigate()}>
+          <Logo>THE PLANETS</Logo>
+        </Link>
+
         <NavList>
           {Data.map((item) => {
             return (
@@ -42,6 +49,9 @@ const NavWrapper = styled.nav`
   justify-content: center;
   align-items: center;
   row-gap: 3.9rem;
+  a {
+    text-decoration: none;
+  }
   @media (min-width: 1140px) {
     flex-direction: unset;
     justify-content: space-between;

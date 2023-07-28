@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./Routes/HomePage";
 import { Helmet } from "react-helmet";
 import GlobalStyle from "./GlobalStyle";
@@ -11,7 +11,7 @@ function App() {
   const handleLinkClick = () => {
     setOpen(false);
   };
-
+  const navigate = useNavigate();
   return (
     <>
       <Helmet>
@@ -23,7 +23,12 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
-      <NavBar setOpen={setOpen} open={open} handleLinkClick={handleLinkClick} />
+      <NavBar
+        setOpen={setOpen}
+        open={open}
+        handleLinkClick={handleLinkClick}
+        navigate={navigate}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />
