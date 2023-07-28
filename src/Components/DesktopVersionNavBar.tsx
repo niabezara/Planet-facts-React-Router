@@ -89,4 +89,7 @@ const List = styled.li<{ color: string }>`
     transform-origin: center;
     transition: transform 350ms ease;
   }
+  &:hover::before {
+    transform: scaleX(1);
+  }
 `;

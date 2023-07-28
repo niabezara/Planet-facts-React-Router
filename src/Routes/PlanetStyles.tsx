@@ -36,6 +36,7 @@ export const SecondHeadline = styled.div`
     border: none;
 
     button {
+      cursor: pointer;
       border: 1px solid hsl(240, 17%, 26%);
       padding: 1.8rem 2.7rem;
       text-align: left;
@@ -73,6 +74,7 @@ export const HeadLine = styled.div`
   justify-content: space-around;
   border-bottom: 1px solid hsl(240, 17%, 26%);
   padding: 2rem;
+  cursor: pointer;
 
   button {
     cursor: pointer;
