@@ -11,7 +11,7 @@ function App() {
   const handleLinkClick = () => {
     setOpen(false);
   };
-  const navigate = useNavigate();
+
   return (
     <>
       <Helmet>
@@ -23,12 +23,7 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
-      <NavBar
-        setOpen={setOpen}
-        open={open}
-        handleLinkClick={handleLinkClick}
-        navigate={navigate}
-      />
+      <NavBar setOpen={setOpen} open={open} handleLinkClick={handleLinkClick} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:planet" element={<Planets />} />

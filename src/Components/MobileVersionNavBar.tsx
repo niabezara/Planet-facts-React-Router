@@ -7,17 +7,15 @@ export default function MobileVersionNavBar({
   setOpen,
   open,
   handleLinkClick,
-  navigate,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleLinkClick: () => void;
-  navigate: () => void;
 }) {
   return (
     <HeaderStyled>
       <Subnav>
-        <Link to="/" onClick={() => navigate()}>
+        <Link to="/">
           <Logo>THE PLANETS</Logo>
         </Link>
         <nav>

@@ -12,6 +12,7 @@ export interface PlanetsInterface {
     content: string;
     source: string;
   };
+
   rotation: string;
   revolution: string;
   radius: string;

@@ -2,15 +2,11 @@ import { Link } from "react-router-dom";
 import Data from "../Data/Data.json";
 import styled from "styled-components";
 
-export default function DesktopVersionNavBar({
-  navigate,
-}: {
-  navigate: () => void;
-}) {
+export default function DesktopVersionNavBar() {
   return (
     <HeaderStyled>
       <NavWrapper>
-        <Link to="/" onClick={() => navigate()}>
+        <Link to="/">
           <Logo>THE PLANETS</Logo>
         </Link>
 
@@ -67,6 +63,7 @@ const NavList = styled.ul`
 
 const List = styled.li<{ color: string }>`
   position: relative;
+
   a {
     color: #fff;
     font-family: "League Spartan";
@@ -80,7 +77,7 @@ const List = styled.li<{ color: string }>`
     cursor: pointer;
   }
 
-  &::before {
+  &:before {
     position: absolute;
     content: "";
     top: 0;
