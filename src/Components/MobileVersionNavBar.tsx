@@ -95,7 +95,10 @@ const Logo = styled.h1`
 const HeaderStyled = styled.header`
   border-bottom: 1px solid hsl(240, 17%, 26%);
   padding: 1.6rem 2.4rem;
-
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  background: #11112b;
   /* @media (min-width: 768px) {
     display: none;
   } */
@@ -118,7 +121,7 @@ const NavList = styled.ul<{ open: boolean }>`
   a {
     color: #fff;
     text-align: center;
-    font-family: Spartan;
+    font-family: "League Spartan";
     font-size: 15px;
     font-style: normal;
     font-weight: 700;

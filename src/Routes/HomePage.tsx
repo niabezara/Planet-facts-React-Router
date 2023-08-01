@@ -52,7 +52,7 @@ export default function HomePage() {
 
 const Container = styled.div`
   height: 101vh;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 `;
 
