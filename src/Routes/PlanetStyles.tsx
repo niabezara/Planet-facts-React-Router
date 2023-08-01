@@ -203,7 +203,7 @@ export const PlanetImageDiv = styled.div<{ backgroundimg: string | undefined }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 4rem;
   &::before {
     position: absolute;
